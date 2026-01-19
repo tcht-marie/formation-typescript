@@ -56,7 +56,7 @@ const axios = require("axios");
 
 const apiResponse = async () => {
   try {
-    const response = axios
+    axios
       .get("https://jsonplaceholder.typicode.com/todos/1")
       .then((res) => console.log(res.data));
   } catch (error) {
