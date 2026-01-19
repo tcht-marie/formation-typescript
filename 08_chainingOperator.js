@@ -15,9 +15,11 @@
  *
  */
 
-const getGroupName = (element) => {
-  const name = element.group?.name;
-  return name === undefined ? undefined : name;
+const getGroupName = (element) => element.group?.name;
+const obj = {
+  name: "John",
+  group: {},
 };
+console.log(getGroupName(obj));
 
 module.exports = { getGroupName };
