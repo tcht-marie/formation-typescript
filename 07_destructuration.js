@@ -57,10 +57,10 @@ const extractName = (element) => {
  */
 
 const removePassword = (element) => {
-  const { name, ...rest } = element;
-  return { name };
+  const { password, ...rest } = element;
+  return rest;
 };
-//bichette = { name: "Gotham", password: "12345" };
-//console.log(removePassword(bichette));
+// bichette = { name: "Gotham", password: "12345" };
+// console.log(removePassword(bichette));
 
 module.exports = { extractFirstTwo, extractRest, extractName, removePassword };
