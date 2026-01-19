@@ -9,4 +9,5 @@
  *  - ne pas utiliser la fonction concat de String
  */
 
-const concat = null;
+const concat = (name, surname) => `${name} ${surname}`;
+//console.log(concat("Bruce", "Wayne"));
