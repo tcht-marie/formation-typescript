@@ -4,9 +4,9 @@
  * utilisez new Promise
  */
 
-const sleep = new Promise(() => {
+const sleep = new Promise((resolve) => {
   setTimeout(() => {
-    console.log("I'm waiting 2 seconds");
+    resolve("I'm waiting 2 seconds");
   }, 2000);
 });
 
