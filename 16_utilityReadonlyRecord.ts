@@ -31,15 +31,25 @@
 // TODO: Définir les types
 
 export type Config = {
-  // À compléter
+  apiUrl: string;
+  timeout: number;
+  maxRetries: number;
 };
 
-export type ImmutableConfig = any;
+export type ImmutableConfig = Readonly<Config>;
 
-export function createConfig(apiUrl: any, timeout: any, maxRetries: any): any {
-  throw new Error("Not implemented");
+export function createConfig(apiUrl: string, timeout: number, maxRetries: number): ImmutableConfig {
+  return { apiUrl, timeout, maxRetries };
 }
 
-export function validateConfig(config: any): any {
-  throw new Error("Not implemented");
+export function validateConfig(config: ImmutableConfig): boolean {
+  return config.timeout > 0 && config.maxRetries > 0;
 }
+
+const config = createConfig("https://api.example.com", 5000, 3);
+console.log(config);
+
+console.log(validateConfig(config))
+
+const badConfig = createConfig("https://api.example.com", -100, 0);
+console.log(validateConfig(badConfig))
