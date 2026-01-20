@@ -28,19 +28,18 @@
 
 export type User = { username: string };
 
-export function formatId(id: number | string) {
-  return id === typeof 'number' ? `ID- ${id}` : id
+export function formatId(id: number | string): string {
+  return id === typeof 'number' ? `ID- ${id}` : id.toString()
 }
 
 console.log(formatId(77));
 console.log(formatId('HEY'));
 
-export function getUsername(user?: User) {
-  return user?.username === null ? "INVITÉ" : user?.username.toUpperCase()
+export function getUsername(user?: User | null) {
+  return user?.username ? user?.username.toUpperCase() : "INVITÉ"
 }
 
 console.log(getUsername());
 console.log(getUsername(null));
-
 console.log(getUsername({username: "Cronos"}));
 
