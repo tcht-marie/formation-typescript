@@ -37,10 +37,14 @@ export function processUnknown(value: unknown): number {
 console.log(processUnknown("Cronos"));
 
 export function safeParseNumber(value: unknown): number | null {
-  return typeof value === 'number' || typeof value === 'string' ? Number.isNaN(Number(value)) ? null : Number(value) : null
+    if (typeof value === 'number' || typeof value === 'string') {
+        return Number.isNaN(Number(value)) ? null : Number(value)
+    }
+    return null
 }
 
 console.log(safeParseNumber("42"));
 console.log(safeParseNumber(3.14));
 console.log(safeParseNumber("abc"));
 console.log(safeParseNumber(null));
+console.log(safeParseNumber(""));
