@@ -36,9 +36,11 @@ console.log(formatId(77));
 console.log(formatId('HEY'));
 
 export function getUsername(user?: User) {
-  return user?.username ? user.username.toUpperCase() : "INVITÉ"
+  return user?.username === null ? "INVITÉ" : user?.username.toUpperCase()
 }
 
 console.log(getUsername());
+console.log(getUsername(null));
+
 console.log(getUsername({username: "Cronos"}));
 

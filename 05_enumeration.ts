@@ -26,9 +26,9 @@ export enum Color {
 }
 
 export function getColorCode(color: Color): string {
-  if (Color.Red) {
+  if (color === "Red") {
     return "#FF0000"
-  } else if (Color.Green) {
+  } else if (color === "Green") {
     return "#00FF00"
   } else {
     return "#0000FF"
@@ -36,3 +36,6 @@ export function getColorCode(color: Color): string {
 }
 
 console.log(getColorCode(Color.Blue));
+console.log(getColorCode(Color.Red));
+console.log(getColorCode(Color.Green));
+
