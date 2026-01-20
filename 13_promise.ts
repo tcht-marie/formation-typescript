@@ -16,7 +16,13 @@
  */
 
 // TODO: Implémenter fetchUsername
+const axios = require("axios");
 
-export async function fetchUsername(userId: number): Promise<any> {
-  throw new Error("Not implemented");
+export async function fetchUsername(userId: number): Promise<string> {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    console.log(response.data.username);
+    return response.data.username;
 }
+fetchUsername(1);
+fetchUsername(2);
+fetchUsername(3);
