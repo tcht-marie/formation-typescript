@@ -29,7 +29,7 @@
 export type User = { username: string };
 
 export function formatId(id: number | string): string {
-  return id === typeof 'number' ? `ID- ${id}` : id.toString()
+  return typeof id === 'number' ? `ID- ${id}` : id.toString()
 }
 
 console.log(formatId(77));
