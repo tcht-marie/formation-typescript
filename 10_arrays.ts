@@ -24,10 +24,15 @@
 
 // TODO: Implémenter les fonctions
 
-export function sumNumbers(numbers: any): any {
-  throw new Error("Not implemented");
+export function sumNumbers(numbers: number[]): number {
+  return numbers.reduce((acc, cValue) => acc + cValue, 0)
 }
 
-export function filterLongWords(words: any, minLength: any): any {
-  throw new Error("Not implemented");
+console.log(sumNumbers([1, 2, 3]));
+console.log(sumNumbers([]));
+console.log(sumNumbers([10, -5, 3]));
+
+export function filterLongWords(words: string[], minLength: number) {
+    return words.filter(word => word.length >= minLength)
 }
+console.log(filterLongWords(["hi", "hello", "world"], 4));
