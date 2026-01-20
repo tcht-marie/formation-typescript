@@ -21,14 +21,17 @@
 
 export type MaybeUser = { name: string, email: string } | null | undefined
 
-export type DefiniteUser = unknown; 
+export type DefiniteUser = NonNullable<MaybeUser>; 
 
 // TODO: Implémenter les fonctions
 
 export function getUsers(): MaybeUser[] {
-  throw new Error("Not implemented");
+    return [{ name: "", email: ""}]
 }
 
 export function filterValidUsers(users: MaybeUser[]): DefiniteUser[] {
-  throw new Error("Not implemented");
+  return users.filter((user): user is DefiniteUser => user !== null && user !== undefined);
 }
+
+const users: MaybeUser[] = [{ name: "Alice", email: "a@test.com" }, null, { name: "Bob", email: "b@test.com" }];
+console.log(filterValidUsers(users))
