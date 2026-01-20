@@ -18,5 +18,9 @@
 export type JsonUser = { name: string; age: number };
 
 export function parseJsonUser(json: string): JsonUser {
-  throw new Error("Not implemented");
+    let jsonParse = JSON.parse(json)
+  let result: JsonUser = jsonParse as JsonUser
+  return result
 }
+
+console.log(parseJsonUser('{"name": "Alice", "age": 25}'));
